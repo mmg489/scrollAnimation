@@ -11,6 +11,23 @@ checkBoxes();
 
 /* this function checks the position of your box/image/content etc */
 function checkBoxes(){
-    console.log(window.innerHeight/5*4)
+    const triggerBottom = (window.innerHeight/5*4)
+/* here we are calling boxes (which we brought in using line 1, they are treated as a node list),
+and passing them through a forEach loop where one of the pass through variables is "box" aka the name of the divs we 
+are using for content boxes*/
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top
 
+        if(boxTop < triggerBottom) {
+            box.classList.add('show')
+        } else {
+            box.classList.remove('show')
+        }
+    })
 }
+
+
+
+
+
+/*getBoundingClientRect is a built in method*/
